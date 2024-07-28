@@ -1,0 +1,1481 @@
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB36:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include "stdio.h" 
+  14:main.c        **** 
+  15:main.c        **** int main(void)
+  16:main.c        **** {
+  28              		.loc 1 16 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 70B5     		push	{r4, r5, r6, lr}
+  33              		.cfi_def_cfa_offset 16
+  34              		.cfi_offset 4, -16
+  35              		.cfi_offset 5, -12
+  36              		.cfi_offset 6, -8
+  37              		.cfi_offset 14, -4
+  17:main.c        ****     CyGlobalIntEnable;
+  38              		.loc 1 17 0
+  39              		.syntax divided
+  40              	@ 17 "main.c" 1
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 2
+
+
+  41 0002 62B6     		CPSIE   i
+  42              	@ 0 "" 2
+  18:main.c        ****     PWM_1_Start();
+  43              		.loc 1 18 0
+  44              		.thumb
+  45              		.syntax unified
+  46 0004 FFF7FEFF 		bl	PWM_1_Start
+  47              	.LVL0:
+  19:main.c        ****     PWM_2_Start();
+  48              		.loc 1 19 0
+  49 0008 FFF7FEFF 		bl	PWM_2_Start
+  50              	.LVL1:
+  20:main.c        ****     PWM_3_Start();
+  51              		.loc 1 20 0
+  52 000c FFF7FEFF 		bl	PWM_3_Start
+  53              	.LVL2:
+  21:main.c        **** 
+  22:main.c        ****     int ii = 0;
+  23:main.c        ****     uint16 ADCResult = ADC_SAR_Seq_1_GetResult16(0);
+  54              		.loc 1 23 0
+  55 0010 0020     		movs	r0, #0
+  56 0012 FFF7FEFF 		bl	ADC_SAR_Seq_1_GetResult16
+  57              	.LVL3:
+  58 0016 86B2     		uxth	r6, r0
+  59              	.LVL4:
+  24:main.c        ****     
+  25:main.c        ****     ADC_SAR_Seq_1_Enable();
+  60              		.loc 1 25 0
+  61 0018 FFF7FEFF 		bl	ADC_SAR_Seq_1_Enable
+  62              	.LVL5:
+  26:main.c        ****     ADC_SAR_Seq_1_Start();
+  63              		.loc 1 26 0
+  64 001c FFF7FEFF 		bl	ADC_SAR_Seq_1_Start
+  65              	.LVL6:
+  27:main.c        ****     ADC_SAR_Seq_1_StartConvert();
+  66              		.loc 1 27 0
+  67 0020 FFF7FEFF 		bl	ADC_SAR_Seq_1_StartConvert
+  68              	.LVL7:
+  28:main.c        ****     ADC_SAR_Seq_1_IsEndConversion(ADC_SAR_Seq_1_WAIT_FOR_RESULT);
+  69              		.loc 1 28 0
+  70 0024 0220     		movs	r0, #2
+  71 0026 FFF7FEFF 		bl	ADC_SAR_Seq_1_IsEndConversion
+  72              	.LVL8:
+  73              	.L13:
+  29:main.c        ****     
+  30:main.c        **** 
+  31:main.c        ****     /*Place your initialization/startup code here (e.g. MyInst_Start()) */
+  32:main.c        ****     
+  33:main.c        ****    
+  34:main.c        **** 
+  35:main.c        ****     for(;;){
+  36:main.c        ****         /* Place your application code here. */
+  37:main.c        ****         CyDelay(10);
+  74              		.loc 1 37 0
+  75 002a 0A20     		movs	r0, #10
+  76 002c FFF7FEFF 		bl	CyDelay
+  77              	.LVL9:
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 3
+
+
+  38:main.c        ****         
+  39:main.c        ****         if (ADCResult > 100 && Switch1_Read() == 0){
+  78              		.loc 1 39 0
+  79 0030 642E     		cmp	r6, #100
+  80 0032 1DD9     		bls	.L2
+  81              		.loc 1 39 0 is_stmt 0 discriminator 1
+  82 0034 FFF7FEFF 		bl	Switch1_Read
+  83              	.LVL10:
+  84 0038 0028     		cmp	r0, #0
+  85 003a 19D1     		bne	.L2
+  40:main.c        ****             Speaker_Write(1);
+  86              		.loc 1 40 0 is_stmt 1
+  87 003c 0130     		adds	r0, r0, #1
+  88 003e FFF7FEFF 		bl	Speaker_Write
+  89              	.LVL11:
+  41:main.c        ****             Red1_Write(1); 
+  90              		.loc 1 41 0
+  91 0042 0120     		movs	r0, #1
+  92 0044 FFF7FEFF 		bl	Red1_Write
+  93              	.LVL12:
+  42:main.c        ****             Blue1_Write(0);    /* Red */
+  94              		.loc 1 42 0
+  95 0048 0020     		movs	r0, #0
+  96 004a FFF7FEFF 		bl	Blue1_Write
+  97              	.LVL13:
+  43:main.c        ****             Green1_Write(1);  
+  98              		.loc 1 43 0
+  99 004e 0120     		movs	r0, #1
+ 100 0050 FFF7FEFF 		bl	Green1_Write
+ 101              	.LVL14:
+  44:main.c        **** 
+  45:main.c        ****             Red2_Write(0);
+ 102              		.loc 1 45 0
+ 103 0054 0020     		movs	r0, #0
+ 104 0056 FFF7FEFF 		bl	Red2_Write
+ 105              	.LVL15:
+  46:main.c        ****             Blue2_Write(0);   
+ 106              		.loc 1 46 0
+ 107 005a 0020     		movs	r0, #0
+ 108 005c FFF7FEFF 		bl	Blue2_Write
+ 109              	.LVL16:
+  47:main.c        ****             Green2_Write(0);
+ 110              		.loc 1 47 0
+ 111 0060 0020     		movs	r0, #0
+ 112 0062 FFF7FEFF 		bl	Green2_Write
+ 113              	.LVL17:
+  48:main.c        ****             CyDelay(500);
+ 114              		.loc 1 48 0
+ 115 0066 FA20     		movs	r0, #250
+ 116 0068 4000     		lsls	r0, r0, #1
+ 117 006a FFF7FEFF 		bl	CyDelay
+ 118              	.LVL18:
+ 119 006e 11E0     		b	.L3
+ 120              	.L2:
+  49:main.c        ****         }else{
+  50:main.c        ****             Red1_Write(0); 
+ 121              		.loc 1 50 0
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 4
+
+
+ 122 0070 0020     		movs	r0, #0
+ 123 0072 FFF7FEFF 		bl	Red1_Write
+ 124              	.LVL19:
+  51:main.c        ****             Blue1_Write(0);    /* Red */
+ 125              		.loc 1 51 0
+ 126 0076 0020     		movs	r0, #0
+ 127 0078 FFF7FEFF 		bl	Blue1_Write
+ 128              	.LVL20:
+  52:main.c        ****             Green1_Write(1);  
+ 129              		.loc 1 52 0
+ 130 007c 0120     		movs	r0, #1
+ 131 007e FFF7FEFF 		bl	Green1_Write
+ 132              	.LVL21:
+  53:main.c        **** 
+  54:main.c        ****             Red2_Write(0);
+ 133              		.loc 1 54 0
+ 134 0082 0020     		movs	r0, #0
+ 135 0084 FFF7FEFF 		bl	Red2_Write
+ 136              	.LVL22:
+  55:main.c        ****             Blue2_Write(0);   
+ 137              		.loc 1 55 0
+ 138 0088 0020     		movs	r0, #0
+ 139 008a FFF7FEFF 		bl	Blue2_Write
+ 140              	.LVL23:
+  56:main.c        ****             Green2_Write(1); 
+ 141              		.loc 1 56 0
+ 142 008e 0120     		movs	r0, #1
+ 143 0090 FFF7FEFF 		bl	Green2_Write
+ 144              	.LVL24:
+ 145              	.L3:
+  57:main.c        ****         }
+  58:main.c        ****         
+  59:main.c        ****         if (Switch1_Read()==0){
+ 146              		.loc 1 59 0
+ 147 0094 FFF7FEFF 		bl	Switch1_Read
+ 148              	.LVL25:
+ 149 0098 0028     		cmp	r0, #0
+ 150 009a 11D1     		bne	.L4
+  60:main.c        ****             Red1_Write(1); 
+ 151              		.loc 1 60 0
+ 152 009c 0130     		adds	r0, r0, #1
+ 153 009e FFF7FEFF 		bl	Red1_Write
+ 154              	.LVL26:
+  61:main.c        ****             Blue1_Write(1);    /* Red */
+ 155              		.loc 1 61 0
+ 156 00a2 0120     		movs	r0, #1
+ 157 00a4 FFF7FEFF 		bl	Blue1_Write
+ 158              	.LVL27:
+  62:main.c        ****             Green1_Write(0);  
+ 159              		.loc 1 62 0
+ 160 00a8 0020     		movs	r0, #0
+ 161 00aa FFF7FEFF 		bl	Green1_Write
+ 162              	.LVL28:
+  63:main.c        **** 
+  64:main.c        ****             Red2_Write(0);
+ 163              		.loc 1 64 0
+ 164 00ae 0020     		movs	r0, #0
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 5
+
+
+ 165 00b0 FFF7FEFF 		bl	Red2_Write
+ 166              	.LVL29:
+  65:main.c        ****             Blue2_Write(0);   
+ 167              		.loc 1 65 0
+ 168 00b4 0020     		movs	r0, #0
+ 169 00b6 FFF7FEFF 		bl	Blue2_Write
+ 170              	.LVL30:
+  66:main.c        ****             Green2_Write(1);     /* Green */
+ 171              		.loc 1 66 0
+ 172 00ba 0120     		movs	r0, #1
+ 173 00bc FFF7FEFF 		bl	Green2_Write
+ 174              	.LVL31:
+ 175              	.L4:
+  16:main.c        ****     CyGlobalIntEnable;
+ 176              		.loc 1 16 0 discriminator 1
+ 177 00c0 0024     		movs	r4, #0
+ 178 00c2 0AE0     		b	.L5
+ 179              	.LVL32:
+ 180              	.L6:
+  67:main.c        ****         }
+  68:main.c        ****         for(ii = 0; ii < 255; ii++){        /* Flashing */
+  69:main.c        ****             PWM_2_WriteCompare(ii);
+ 181              		.loc 1 69 0 discriminator 3
+ 182 00c4 E5B2     		uxtb	r5, r4
+ 183 00c6 2800     		movs	r0, r5
+ 184 00c8 FFF7FEFF 		bl	PWM_2_WriteCompare
+ 185              	.LVL33:
+  70:main.c        ****             PWM_1_WriteCompare(ii);
+ 186              		.loc 1 70 0 discriminator 3
+ 187 00cc 2800     		movs	r0, r5
+ 188 00ce FFF7FEFF 		bl	PWM_1_WriteCompare
+ 189              	.LVL34:
+  71:main.c        ****             CyDelay(5);
+ 190              		.loc 1 71 0 discriminator 3
+ 191 00d2 0520     		movs	r0, #5
+ 192 00d4 FFF7FEFF 		bl	CyDelay
+ 193              	.LVL35:
+  68:main.c        ****             PWM_2_WriteCompare(ii);
+ 194              		.loc 1 68 0 discriminator 3
+ 195 00d8 0134     		adds	r4, r4, #1
+ 196              	.LVL36:
+ 197              	.L5:
+  68:main.c        ****             PWM_2_WriteCompare(ii);
+ 198              		.loc 1 68 0 is_stmt 0 discriminator 1
+ 199 00da FE2C     		cmp	r4, #254
+ 200 00dc F2DD     		ble	.L6
+ 201 00de FF24     		movs	r4, #255
+ 202              	.LVL37:
+ 203 00e0 0AE0     		b	.L7
+ 204              	.LVL38:
+ 205              	.L8:
+  72:main.c        ****         }
+  73:main.c        ****         for(ii = 255; ii > 0; ii--){               /* Flashing */
+  74:main.c        ****             PWM_2_WriteCompare(ii);
+ 206              		.loc 1 74 0 is_stmt 1 discriminator 3
+ 207 00e2 E5B2     		uxtb	r5, r4
+ 208 00e4 2800     		movs	r0, r5
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 6
+
+
+ 209 00e6 FFF7FEFF 		bl	PWM_2_WriteCompare
+ 210              	.LVL39:
+  75:main.c        ****             PWM_1_WriteCompare(ii);
+ 211              		.loc 1 75 0 discriminator 3
+ 212 00ea 2800     		movs	r0, r5
+ 213 00ec FFF7FEFF 		bl	PWM_1_WriteCompare
+ 214              	.LVL40:
+  76:main.c        ****             CyDelay(5);
+ 215              		.loc 1 76 0 discriminator 3
+ 216 00f0 0520     		movs	r0, #5
+ 217 00f2 FFF7FEFF 		bl	CyDelay
+ 218              	.LVL41:
+  73:main.c        ****             PWM_2_WriteCompare(ii);
+ 219              		.loc 1 73 0 discriminator 3
+ 220 00f6 013C     		subs	r4, r4, #1
+ 221              	.LVL42:
+ 222              	.L7:
+  73:main.c        ****             PWM_2_WriteCompare(ii);
+ 223              		.loc 1 73 0 is_stmt 0 discriminator 1
+ 224 00f8 002C     		cmp	r4, #0
+ 225 00fa F2DC     		bgt	.L8
+ 226 00fc 0024     		movs	r4, #0
+ 227              	.LVL43:
+ 228 00fe 0AE0     		b	.L9
+ 229              	.LVL44:
+ 230              	.L10:
+  77:main.c        ****         }
+  78:main.c        **** 
+  79:main.c        ****         for(ii = 0; ii < 255; ii++){            /* Flashing */
+  80:main.c        ****             PWM_2_WriteCompare(ii);
+ 231              		.loc 1 80 0 is_stmt 1 discriminator 3
+ 232 0100 E5B2     		uxtb	r5, r4
+ 233 0102 2800     		movs	r0, r5
+ 234 0104 FFF7FEFF 		bl	PWM_2_WriteCompare
+ 235              	.LVL45:
+  81:main.c        ****             PWM_1_WriteCompare(ii);
+ 236              		.loc 1 81 0 discriminator 3
+ 237 0108 2800     		movs	r0, r5
+ 238 010a FFF7FEFF 		bl	PWM_1_WriteCompare
+ 239              	.LVL46:
+  82:main.c        ****             CyDelay(5);
+ 240              		.loc 1 82 0 discriminator 3
+ 241 010e 0520     		movs	r0, #5
+ 242 0110 FFF7FEFF 		bl	CyDelay
+ 243              	.LVL47:
+  79:main.c        ****             PWM_2_WriteCompare(ii);
+ 244              		.loc 1 79 0 discriminator 3
+ 245 0114 0134     		adds	r4, r4, #1
+ 246              	.LVL48:
+ 247              	.L9:
+  79:main.c        ****             PWM_2_WriteCompare(ii);
+ 248              		.loc 1 79 0 is_stmt 0 discriminator 1
+ 249 0116 FE2C     		cmp	r4, #254
+ 250 0118 F2DD     		ble	.L10
+ 251 011a FF24     		movs	r4, #255
+ 252              	.LVL49:
+ 253 011c 0AE0     		b	.L11
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 7
+
+
+ 254              	.LVL50:
+ 255              	.L12:
+  83:main.c        ****         }
+  84:main.c        ****         for(ii = 255; ii > 0; ii--){          /* Flashing */
+  85:main.c        ****             PWM_2_WriteCompare(ii);
+ 256              		.loc 1 85 0 is_stmt 1 discriminator 3
+ 257 011e E5B2     		uxtb	r5, r4
+ 258 0120 2800     		movs	r0, r5
+ 259 0122 FFF7FEFF 		bl	PWM_2_WriteCompare
+ 260              	.LVL51:
+  86:main.c        ****             PWM_1_WriteCompare(ii);
+ 261              		.loc 1 86 0 discriminator 3
+ 262 0126 2800     		movs	r0, r5
+ 263 0128 FFF7FEFF 		bl	PWM_1_WriteCompare
+ 264              	.LVL52:
+  87:main.c        ****             CyDelay(5);
+ 265              		.loc 1 87 0 discriminator 3
+ 266 012c 0520     		movs	r0, #5
+ 267 012e FFF7FEFF 		bl	CyDelay
+ 268              	.LVL53:
+  84:main.c        ****             PWM_2_WriteCompare(ii);
+ 269              		.loc 1 84 0 discriminator 3
+ 270 0132 013C     		subs	r4, r4, #1
+ 271              	.LVL54:
+ 272              	.L11:
+  84:main.c        ****             PWM_2_WriteCompare(ii);
+ 273              		.loc 1 84 0 is_stmt 0 discriminator 1
+ 274 0134 002C     		cmp	r4, #0
+ 275 0136 F2DC     		bgt	.L12
+  88:main.c        ****         }
+  89:main.c        ****         PWM_3_WriteCompare(250);
+ 276              		.loc 1 89 0 is_stmt 1
+ 277 0138 FA20     		movs	r0, #250
+ 278 013a FFF7FEFF 		bl	PWM_3_WriteCompare
+ 279              	.LVL55:
+  90:main.c        ****         }
+ 280              		.loc 1 90 0
+ 281 013e 74E7     		b	.L13
+ 282              		.cfi_endproc
+ 283              	.LFE36:
+ 284              		.size	main, .-main
+ 285              		.text
+ 286              	.Letext0:
+ 287              		.file 2 "Generated_Source\\PSoC4/PWM_1.h"
+ 288              		.file 3 "Generated_Source\\PSoC4/PWM_2.h"
+ 289              		.file 4 "Generated_Source\\PSoC4/PWM_3.h"
+ 290              		.file 5 "Generated_Source\\PSoC4/ADC_SAR_Seq_1.h"
+ 291              		.file 6 "Generated_Source\\PSoC4/CyLib.h"
+ 292              		.file 7 "Generated_Source\\PSoC4/Switch1.h"
+ 293              		.file 8 "Generated_Source\\PSoC4/Speaker.h"
+ 294              		.file 9 "Generated_Source\\PSoC4/Red1.h"
+ 295              		.file 10 "Generated_Source\\PSoC4/Blue1.h"
+ 296              		.file 11 "Generated_Source\\PSoC4/Green1.h"
+ 297              		.file 12 "Generated_Source\\PSoC4/Red2.h"
+ 298              		.file 13 "Generated_Source\\PSoC4/Blue2.h"
+ 299              		.file 14 "Generated_Source\\PSoC4/Green2.h"
+ 300              		.file 15 "Generated_Source\\PSoC4/cytypes.h"
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 8
+
+
+ 301              		.section	.debug_info,"",%progbits
+ 302              	.Ldebug_info0:
+ 303 0000 8F040000 		.4byte	0x48f
+ 304 0004 0400     		.2byte	0x4
+ 305 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 306 000a 04       		.byte	0x4
+ 307 000b 01       		.uleb128 0x1
+ 308 000c 58010000 		.4byte	.LASF35
+ 309 0010 0C       		.byte	0xc
+ 310 0011 1C020000 		.4byte	.LASF36
+ 311 0015 59020000 		.4byte	.LASF37
+ 312 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 313 001d 00000000 		.4byte	0
+ 314 0021 00000000 		.4byte	.Ldebug_line0
+ 315 0025 02       		.uleb128 0x2
+ 316 0026 01       		.byte	0x1
+ 317 0027 06       		.byte	0x6
+ 318 0028 AE020000 		.4byte	.LASF0
+ 319 002c 02       		.uleb128 0x2
+ 320 002d 01       		.byte	0x1
+ 321 002e 08       		.byte	0x8
+ 322 002f 61000000 		.4byte	.LASF1
+ 323 0033 02       		.uleb128 0x2
+ 324 0034 02       		.byte	0x2
+ 325 0035 05       		.byte	0x5
+ 326 0036 28020000 		.4byte	.LASF2
+ 327 003a 02       		.uleb128 0x2
+ 328 003b 02       		.byte	0x2
+ 329 003c 07       		.byte	0x7
+ 330 003d 1B000000 		.4byte	.LASF3
+ 331 0041 02       		.uleb128 0x2
+ 332 0042 04       		.byte	0x4
+ 333 0043 05       		.byte	0x5
+ 334 0044 32020000 		.4byte	.LASF4
+ 335 0048 02       		.uleb128 0x2
+ 336 0049 04       		.byte	0x4
+ 337 004a 07       		.byte	0x7
+ 338 004b 7B000000 		.4byte	.LASF5
+ 339 004f 02       		.uleb128 0x2
+ 340 0050 08       		.byte	0x8
+ 341 0051 05       		.byte	0x5
+ 342 0052 0E020000 		.4byte	.LASF6
+ 343 0056 02       		.uleb128 0x2
+ 344 0057 08       		.byte	0x8
+ 345 0058 07       		.byte	0x7
+ 346 0059 2A010000 		.4byte	.LASF7
+ 347 005d 03       		.uleb128 0x3
+ 348 005e 04       		.byte	0x4
+ 349 005f 05       		.byte	0x5
+ 350 0060 696E7400 		.ascii	"int\000"
+ 351 0064 02       		.uleb128 0x2
+ 352 0065 04       		.byte	0x4
+ 353 0066 07       		.byte	0x7
+ 354 0067 02010000 		.4byte	.LASF8
+ 355 006b 04       		.uleb128 0x4
+ 356 006c E4000000 		.4byte	.LASF38
+ 357 0070 0F       		.byte	0xf
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 9
+
+
+ 358 0071 FC01     		.2byte	0x1fc
+ 359 0073 3A000000 		.4byte	0x3a
+ 360 0077 02       		.uleb128 0x2
+ 361 0078 04       		.byte	0x4
+ 362 0079 04       		.byte	0x4
+ 363 007a 5B000000 		.4byte	.LASF9
+ 364 007e 02       		.uleb128 0x2
+ 365 007f 08       		.byte	0x8
+ 366 0080 04       		.byte	0x4
+ 367 0081 C2000000 		.4byte	.LASF10
+ 368 0085 02       		.uleb128 0x2
+ 369 0086 01       		.byte	0x1
+ 370 0087 08       		.byte	0x8
+ 371 0088 23020000 		.4byte	.LASF11
+ 372 008c 02       		.uleb128 0x2
+ 373 008d 08       		.byte	0x8
+ 374 008e 04       		.byte	0x4
+ 375 008f E6010000 		.4byte	.LASF12
+ 376 0093 02       		.uleb128 0x2
+ 377 0094 04       		.byte	0x4
+ 378 0095 07       		.byte	0x7
+ 379 0096 F2010000 		.4byte	.LASF13
+ 380 009a 05       		.uleb128 0x5
+ 381 009b DF000000 		.4byte	.LASF39
+ 382 009f 01       		.byte	0x1
+ 383 00a0 0F       		.byte	0xf
+ 384 00a1 5D000000 		.4byte	0x5d
+ 385 00a5 00000000 		.4byte	.LFB36
+ 386 00a9 40010000 		.4byte	.LFE36-.LFB36
+ 387 00ad 01       		.uleb128 0x1
+ 388 00ae 9C       		.byte	0x9c
+ 389 00af B6030000 		.4byte	0x3b6
+ 390 00b3 06       		.uleb128 0x6
+ 391 00b4 696900   		.ascii	"ii\000"
+ 392 00b7 01       		.byte	0x1
+ 393 00b8 16       		.byte	0x16
+ 394 00b9 5D000000 		.4byte	0x5d
+ 395 00bd 00000000 		.4byte	.LLST0
+ 396 00c1 07       		.uleb128 0x7
+ 397 00c2 D5000000 		.4byte	.LASF14
+ 398 00c6 01       		.byte	0x1
+ 399 00c7 17       		.byte	0x17
+ 400 00c8 6B000000 		.4byte	0x6b
+ 401 00cc 01       		.uleb128 0x1
+ 402 00cd 56       		.byte	0x56
+ 403 00ce 08       		.uleb128 0x8
+ 404 00cf 08000000 		.4byte	.LVL0
+ 405 00d3 B6030000 		.4byte	0x3b6
+ 406 00d7 08       		.uleb128 0x8
+ 407 00d8 0C000000 		.4byte	.LVL1
+ 408 00dc C1030000 		.4byte	0x3c1
+ 409 00e0 08       		.uleb128 0x8
+ 410 00e1 10000000 		.4byte	.LVL2
+ 411 00e5 CC030000 		.4byte	0x3cc
+ 412 00e9 09       		.uleb128 0x9
+ 413 00ea 16000000 		.4byte	.LVL3
+ 414 00ee D7030000 		.4byte	0x3d7
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 10
+
+
+ 415 00f2 FC000000 		.4byte	0xfc
+ 416 00f6 0A       		.uleb128 0xa
+ 417 00f7 01       		.uleb128 0x1
+ 418 00f8 50       		.byte	0x50
+ 419 00f9 01       		.uleb128 0x1
+ 420 00fa 30       		.byte	0x30
+ 421 00fb 00       		.byte	0
+ 422 00fc 08       		.uleb128 0x8
+ 423 00fd 1C000000 		.4byte	.LVL5
+ 424 0101 E2030000 		.4byte	0x3e2
+ 425 0105 08       		.uleb128 0x8
+ 426 0106 20000000 		.4byte	.LVL6
+ 427 010a ED030000 		.4byte	0x3ed
+ 428 010e 08       		.uleb128 0x8
+ 429 010f 24000000 		.4byte	.LVL7
+ 430 0113 F8030000 		.4byte	0x3f8
+ 431 0117 09       		.uleb128 0x9
+ 432 0118 2A000000 		.4byte	.LVL8
+ 433 011c 03040000 		.4byte	0x403
+ 434 0120 2A010000 		.4byte	0x12a
+ 435 0124 0A       		.uleb128 0xa
+ 436 0125 01       		.uleb128 0x1
+ 437 0126 50       		.byte	0x50
+ 438 0127 01       		.uleb128 0x1
+ 439 0128 32       		.byte	0x32
+ 440 0129 00       		.byte	0
+ 441 012a 09       		.uleb128 0x9
+ 442 012b 30000000 		.4byte	.LVL9
+ 443 012f 0E040000 		.4byte	0x40e
+ 444 0133 3D010000 		.4byte	0x13d
+ 445 0137 0A       		.uleb128 0xa
+ 446 0138 01       		.uleb128 0x1
+ 447 0139 50       		.byte	0x50
+ 448 013a 01       		.uleb128 0x1
+ 449 013b 3A       		.byte	0x3a
+ 450 013c 00       		.byte	0
+ 451 013d 08       		.uleb128 0x8
+ 452 013e 38000000 		.4byte	.LVL10
+ 453 0142 19040000 		.4byte	0x419
+ 454 0146 08       		.uleb128 0x8
+ 455 0147 42000000 		.4byte	.LVL11
+ 456 014b 24040000 		.4byte	0x424
+ 457 014f 09       		.uleb128 0x9
+ 458 0150 48000000 		.4byte	.LVL12
+ 459 0154 2F040000 		.4byte	0x42f
+ 460 0158 62010000 		.4byte	0x162
+ 461 015c 0A       		.uleb128 0xa
+ 462 015d 01       		.uleb128 0x1
+ 463 015e 50       		.byte	0x50
+ 464 015f 01       		.uleb128 0x1
+ 465 0160 31       		.byte	0x31
+ 466 0161 00       		.byte	0
+ 467 0162 09       		.uleb128 0x9
+ 468 0163 4E000000 		.4byte	.LVL13
+ 469 0167 3A040000 		.4byte	0x43a
+ 470 016b 75010000 		.4byte	0x175
+ 471 016f 0A       		.uleb128 0xa
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 11
+
+
+ 472 0170 01       		.uleb128 0x1
+ 473 0171 50       		.byte	0x50
+ 474 0172 01       		.uleb128 0x1
+ 475 0173 30       		.byte	0x30
+ 476 0174 00       		.byte	0
+ 477 0175 09       		.uleb128 0x9
+ 478 0176 54000000 		.4byte	.LVL14
+ 479 017a 45040000 		.4byte	0x445
+ 480 017e 88010000 		.4byte	0x188
+ 481 0182 0A       		.uleb128 0xa
+ 482 0183 01       		.uleb128 0x1
+ 483 0184 50       		.byte	0x50
+ 484 0185 01       		.uleb128 0x1
+ 485 0186 31       		.byte	0x31
+ 486 0187 00       		.byte	0
+ 487 0188 09       		.uleb128 0x9
+ 488 0189 5A000000 		.4byte	.LVL15
+ 489 018d 50040000 		.4byte	0x450
+ 490 0191 9B010000 		.4byte	0x19b
+ 491 0195 0A       		.uleb128 0xa
+ 492 0196 01       		.uleb128 0x1
+ 493 0197 50       		.byte	0x50
+ 494 0198 01       		.uleb128 0x1
+ 495 0199 30       		.byte	0x30
+ 496 019a 00       		.byte	0
+ 497 019b 09       		.uleb128 0x9
+ 498 019c 60000000 		.4byte	.LVL16
+ 499 01a0 5B040000 		.4byte	0x45b
+ 500 01a4 AE010000 		.4byte	0x1ae
+ 501 01a8 0A       		.uleb128 0xa
+ 502 01a9 01       		.uleb128 0x1
+ 503 01aa 50       		.byte	0x50
+ 504 01ab 01       		.uleb128 0x1
+ 505 01ac 30       		.byte	0x30
+ 506 01ad 00       		.byte	0
+ 507 01ae 09       		.uleb128 0x9
+ 508 01af 66000000 		.4byte	.LVL17
+ 509 01b3 66040000 		.4byte	0x466
+ 510 01b7 C1010000 		.4byte	0x1c1
+ 511 01bb 0A       		.uleb128 0xa
+ 512 01bc 01       		.uleb128 0x1
+ 513 01bd 50       		.byte	0x50
+ 514 01be 01       		.uleb128 0x1
+ 515 01bf 30       		.byte	0x30
+ 516 01c0 00       		.byte	0
+ 517 01c1 09       		.uleb128 0x9
+ 518 01c2 6E000000 		.4byte	.LVL18
+ 519 01c6 0E040000 		.4byte	0x40e
+ 520 01ca D6010000 		.4byte	0x1d6
+ 521 01ce 0A       		.uleb128 0xa
+ 522 01cf 01       		.uleb128 0x1
+ 523 01d0 50       		.byte	0x50
+ 524 01d1 03       		.uleb128 0x3
+ 525 01d2 0A       		.byte	0xa
+ 526 01d3 F401     		.2byte	0x1f4
+ 527 01d5 00       		.byte	0
+ 528 01d6 09       		.uleb128 0x9
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 12
+
+
+ 529 01d7 76000000 		.4byte	.LVL19
+ 530 01db 2F040000 		.4byte	0x42f
+ 531 01df E9010000 		.4byte	0x1e9
+ 532 01e3 0A       		.uleb128 0xa
+ 533 01e4 01       		.uleb128 0x1
+ 534 01e5 50       		.byte	0x50
+ 535 01e6 01       		.uleb128 0x1
+ 536 01e7 30       		.byte	0x30
+ 537 01e8 00       		.byte	0
+ 538 01e9 09       		.uleb128 0x9
+ 539 01ea 7C000000 		.4byte	.LVL20
+ 540 01ee 3A040000 		.4byte	0x43a
+ 541 01f2 FC010000 		.4byte	0x1fc
+ 542 01f6 0A       		.uleb128 0xa
+ 543 01f7 01       		.uleb128 0x1
+ 544 01f8 50       		.byte	0x50
+ 545 01f9 01       		.uleb128 0x1
+ 546 01fa 30       		.byte	0x30
+ 547 01fb 00       		.byte	0
+ 548 01fc 09       		.uleb128 0x9
+ 549 01fd 82000000 		.4byte	.LVL21
+ 550 0201 45040000 		.4byte	0x445
+ 551 0205 0F020000 		.4byte	0x20f
+ 552 0209 0A       		.uleb128 0xa
+ 553 020a 01       		.uleb128 0x1
+ 554 020b 50       		.byte	0x50
+ 555 020c 01       		.uleb128 0x1
+ 556 020d 31       		.byte	0x31
+ 557 020e 00       		.byte	0
+ 558 020f 09       		.uleb128 0x9
+ 559 0210 88000000 		.4byte	.LVL22
+ 560 0214 50040000 		.4byte	0x450
+ 561 0218 22020000 		.4byte	0x222
+ 562 021c 0A       		.uleb128 0xa
+ 563 021d 01       		.uleb128 0x1
+ 564 021e 50       		.byte	0x50
+ 565 021f 01       		.uleb128 0x1
+ 566 0220 30       		.byte	0x30
+ 567 0221 00       		.byte	0
+ 568 0222 09       		.uleb128 0x9
+ 569 0223 8E000000 		.4byte	.LVL23
+ 570 0227 5B040000 		.4byte	0x45b
+ 571 022b 35020000 		.4byte	0x235
+ 572 022f 0A       		.uleb128 0xa
+ 573 0230 01       		.uleb128 0x1
+ 574 0231 50       		.byte	0x50
+ 575 0232 01       		.uleb128 0x1
+ 576 0233 30       		.byte	0x30
+ 577 0234 00       		.byte	0
+ 578 0235 09       		.uleb128 0x9
+ 579 0236 94000000 		.4byte	.LVL24
+ 580 023a 66040000 		.4byte	0x466
+ 581 023e 48020000 		.4byte	0x248
+ 582 0242 0A       		.uleb128 0xa
+ 583 0243 01       		.uleb128 0x1
+ 584 0244 50       		.byte	0x50
+ 585 0245 01       		.uleb128 0x1
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 13
+
+
+ 586 0246 31       		.byte	0x31
+ 587 0247 00       		.byte	0
+ 588 0248 08       		.uleb128 0x8
+ 589 0249 98000000 		.4byte	.LVL25
+ 590 024d 19040000 		.4byte	0x419
+ 591 0251 08       		.uleb128 0x8
+ 592 0252 A2000000 		.4byte	.LVL26
+ 593 0256 2F040000 		.4byte	0x42f
+ 594 025a 09       		.uleb128 0x9
+ 595 025b A8000000 		.4byte	.LVL27
+ 596 025f 3A040000 		.4byte	0x43a
+ 597 0263 6D020000 		.4byte	0x26d
+ 598 0267 0A       		.uleb128 0xa
+ 599 0268 01       		.uleb128 0x1
+ 600 0269 50       		.byte	0x50
+ 601 026a 01       		.uleb128 0x1
+ 602 026b 31       		.byte	0x31
+ 603 026c 00       		.byte	0
+ 604 026d 09       		.uleb128 0x9
+ 605 026e AE000000 		.4byte	.LVL28
+ 606 0272 45040000 		.4byte	0x445
+ 607 0276 80020000 		.4byte	0x280
+ 608 027a 0A       		.uleb128 0xa
+ 609 027b 01       		.uleb128 0x1
+ 610 027c 50       		.byte	0x50
+ 611 027d 01       		.uleb128 0x1
+ 612 027e 30       		.byte	0x30
+ 613 027f 00       		.byte	0
+ 614 0280 09       		.uleb128 0x9
+ 615 0281 B4000000 		.4byte	.LVL29
+ 616 0285 50040000 		.4byte	0x450
+ 617 0289 93020000 		.4byte	0x293
+ 618 028d 0A       		.uleb128 0xa
+ 619 028e 01       		.uleb128 0x1
+ 620 028f 50       		.byte	0x50
+ 621 0290 01       		.uleb128 0x1
+ 622 0291 30       		.byte	0x30
+ 623 0292 00       		.byte	0
+ 624 0293 09       		.uleb128 0x9
+ 625 0294 BA000000 		.4byte	.LVL30
+ 626 0298 5B040000 		.4byte	0x45b
+ 627 029c A6020000 		.4byte	0x2a6
+ 628 02a0 0A       		.uleb128 0xa
+ 629 02a1 01       		.uleb128 0x1
+ 630 02a2 50       		.byte	0x50
+ 631 02a3 01       		.uleb128 0x1
+ 632 02a4 30       		.byte	0x30
+ 633 02a5 00       		.byte	0
+ 634 02a6 09       		.uleb128 0x9
+ 635 02a7 C0000000 		.4byte	.LVL31
+ 636 02ab 66040000 		.4byte	0x466
+ 637 02af B9020000 		.4byte	0x2b9
+ 638 02b3 0A       		.uleb128 0xa
+ 639 02b4 01       		.uleb128 0x1
+ 640 02b5 50       		.byte	0x50
+ 641 02b6 01       		.uleb128 0x1
+ 642 02b7 31       		.byte	0x31
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 14
+
+
+ 643 02b8 00       		.byte	0
+ 644 02b9 09       		.uleb128 0x9
+ 645 02ba CC000000 		.4byte	.LVL33
+ 646 02be 71040000 		.4byte	0x471
+ 647 02c2 CD020000 		.4byte	0x2cd
+ 648 02c6 0A       		.uleb128 0xa
+ 649 02c7 01       		.uleb128 0x1
+ 650 02c8 50       		.byte	0x50
+ 651 02c9 02       		.uleb128 0x2
+ 652 02ca 75       		.byte	0x75
+ 653 02cb 00       		.sleb128 0
+ 654 02cc 00       		.byte	0
+ 655 02cd 09       		.uleb128 0x9
+ 656 02ce D2000000 		.4byte	.LVL34
+ 657 02d2 7C040000 		.4byte	0x47c
+ 658 02d6 E1020000 		.4byte	0x2e1
+ 659 02da 0A       		.uleb128 0xa
+ 660 02db 01       		.uleb128 0x1
+ 661 02dc 50       		.byte	0x50
+ 662 02dd 02       		.uleb128 0x2
+ 663 02de 75       		.byte	0x75
+ 664 02df 00       		.sleb128 0
+ 665 02e0 00       		.byte	0
+ 666 02e1 09       		.uleb128 0x9
+ 667 02e2 D8000000 		.4byte	.LVL35
+ 668 02e6 0E040000 		.4byte	0x40e
+ 669 02ea F4020000 		.4byte	0x2f4
+ 670 02ee 0A       		.uleb128 0xa
+ 671 02ef 01       		.uleb128 0x1
+ 672 02f0 50       		.byte	0x50
+ 673 02f1 01       		.uleb128 0x1
+ 674 02f2 35       		.byte	0x35
+ 675 02f3 00       		.byte	0
+ 676 02f4 09       		.uleb128 0x9
+ 677 02f5 EA000000 		.4byte	.LVL39
+ 678 02f9 71040000 		.4byte	0x471
+ 679 02fd 08030000 		.4byte	0x308
+ 680 0301 0A       		.uleb128 0xa
+ 681 0302 01       		.uleb128 0x1
+ 682 0303 50       		.byte	0x50
+ 683 0304 02       		.uleb128 0x2
+ 684 0305 75       		.byte	0x75
+ 685 0306 00       		.sleb128 0
+ 686 0307 00       		.byte	0
+ 687 0308 09       		.uleb128 0x9
+ 688 0309 F0000000 		.4byte	.LVL40
+ 689 030d 7C040000 		.4byte	0x47c
+ 690 0311 1C030000 		.4byte	0x31c
+ 691 0315 0A       		.uleb128 0xa
+ 692 0316 01       		.uleb128 0x1
+ 693 0317 50       		.byte	0x50
+ 694 0318 02       		.uleb128 0x2
+ 695 0319 75       		.byte	0x75
+ 696 031a 00       		.sleb128 0
+ 697 031b 00       		.byte	0
+ 698 031c 09       		.uleb128 0x9
+ 699 031d F6000000 		.4byte	.LVL41
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 15
+
+
+ 700 0321 0E040000 		.4byte	0x40e
+ 701 0325 2F030000 		.4byte	0x32f
+ 702 0329 0A       		.uleb128 0xa
+ 703 032a 01       		.uleb128 0x1
+ 704 032b 50       		.byte	0x50
+ 705 032c 01       		.uleb128 0x1
+ 706 032d 35       		.byte	0x35
+ 707 032e 00       		.byte	0
+ 708 032f 09       		.uleb128 0x9
+ 709 0330 08010000 		.4byte	.LVL45
+ 710 0334 71040000 		.4byte	0x471
+ 711 0338 43030000 		.4byte	0x343
+ 712 033c 0A       		.uleb128 0xa
+ 713 033d 01       		.uleb128 0x1
+ 714 033e 50       		.byte	0x50
+ 715 033f 02       		.uleb128 0x2
+ 716 0340 75       		.byte	0x75
+ 717 0341 00       		.sleb128 0
+ 718 0342 00       		.byte	0
+ 719 0343 09       		.uleb128 0x9
+ 720 0344 0E010000 		.4byte	.LVL46
+ 721 0348 7C040000 		.4byte	0x47c
+ 722 034c 57030000 		.4byte	0x357
+ 723 0350 0A       		.uleb128 0xa
+ 724 0351 01       		.uleb128 0x1
+ 725 0352 50       		.byte	0x50
+ 726 0353 02       		.uleb128 0x2
+ 727 0354 75       		.byte	0x75
+ 728 0355 00       		.sleb128 0
+ 729 0356 00       		.byte	0
+ 730 0357 09       		.uleb128 0x9
+ 731 0358 14010000 		.4byte	.LVL47
+ 732 035c 0E040000 		.4byte	0x40e
+ 733 0360 6A030000 		.4byte	0x36a
+ 734 0364 0A       		.uleb128 0xa
+ 735 0365 01       		.uleb128 0x1
+ 736 0366 50       		.byte	0x50
+ 737 0367 01       		.uleb128 0x1
+ 738 0368 35       		.byte	0x35
+ 739 0369 00       		.byte	0
+ 740 036a 09       		.uleb128 0x9
+ 741 036b 26010000 		.4byte	.LVL51
+ 742 036f 71040000 		.4byte	0x471
+ 743 0373 7E030000 		.4byte	0x37e
+ 744 0377 0A       		.uleb128 0xa
+ 745 0378 01       		.uleb128 0x1
+ 746 0379 50       		.byte	0x50
+ 747 037a 02       		.uleb128 0x2
+ 748 037b 75       		.byte	0x75
+ 749 037c 00       		.sleb128 0
+ 750 037d 00       		.byte	0
+ 751 037e 09       		.uleb128 0x9
+ 752 037f 2C010000 		.4byte	.LVL52
+ 753 0383 7C040000 		.4byte	0x47c
+ 754 0387 92030000 		.4byte	0x392
+ 755 038b 0A       		.uleb128 0xa
+ 756 038c 01       		.uleb128 0x1
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 16
+
+
+ 757 038d 50       		.byte	0x50
+ 758 038e 02       		.uleb128 0x2
+ 759 038f 75       		.byte	0x75
+ 760 0390 00       		.sleb128 0
+ 761 0391 00       		.byte	0
+ 762 0392 09       		.uleb128 0x9
+ 763 0393 32010000 		.4byte	.LVL53
+ 764 0397 0E040000 		.4byte	0x40e
+ 765 039b A5030000 		.4byte	0x3a5
+ 766 039f 0A       		.uleb128 0xa
+ 767 03a0 01       		.uleb128 0x1
+ 768 03a1 50       		.byte	0x50
+ 769 03a2 01       		.uleb128 0x1
+ 770 03a3 35       		.byte	0x35
+ 771 03a4 00       		.byte	0
+ 772 03a5 0B       		.uleb128 0xb
+ 773 03a6 3E010000 		.4byte	.LVL55
+ 774 03aa 87040000 		.4byte	0x487
+ 775 03ae 0A       		.uleb128 0xa
+ 776 03af 01       		.uleb128 0x1
+ 777 03b0 50       		.byte	0x50
+ 778 03b1 02       		.uleb128 0x2
+ 779 03b2 09       		.byte	0x9
+ 780 03b3 FA       		.byte	0xfa
+ 781 03b4 00       		.byte	0
+ 782 03b5 00       		.byte	0
+ 783 03b6 0C       		.uleb128 0xc
+ 784 03b7 8D000000 		.4byte	.LASF15
+ 785 03bb 8D000000 		.4byte	.LASF15
+ 786 03bf 02       		.byte	0x2
+ 787 03c0 92       		.byte	0x92
+ 788 03c1 0C       		.uleb128 0xc
+ 789 03c2 C9000000 		.4byte	.LASF16
+ 790 03c6 C9000000 		.4byte	.LASF16
+ 791 03ca 03       		.byte	0x3
+ 792 03cb 92       		.byte	0x92
+ 793 03cc 0C       		.uleb128 0xc
+ 794 03cd F6000000 		.4byte	.LASF17
+ 795 03d1 F6000000 		.4byte	.LASF17
+ 796 03d5 04       		.byte	0x4
+ 797 03d6 92       		.byte	0x92
+ 798 03d7 0C       		.uleb128 0xc
+ 799 03d8 C2020000 		.4byte	.LASF18
+ 800 03dc C2020000 		.4byte	.LASF18
+ 801 03e0 05       		.byte	0x5
+ 802 03e1 A0       		.byte	0xa0
+ 803 03e2 0C       		.uleb128 0xc
+ 804 03e3 99000000 		.4byte	.LASF19
+ 805 03e7 99000000 		.4byte	.LASF19
+ 806 03eb 05       		.byte	0x5
+ 807 03ec 9C       		.byte	0x9c
+ 808 03ed 0C       		.uleb128 0xc
+ 809 03ee AE000000 		.4byte	.LASF20
+ 810 03f2 AE000000 		.4byte	.LASF20
+ 811 03f6 05       		.byte	0x5
+ 812 03f7 99       		.byte	0x99
+ 813 03f8 0C       		.uleb128 0xc
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 17
+
+
+ 814 03f9 0F010000 		.4byte	.LASF21
+ 815 03fd 0F010000 		.4byte	.LASF21
+ 816 0401 05       		.byte	0x5
+ 817 0402 9D       		.byte	0x9d
+ 818 0403 0C       		.uleb128 0xc
+ 819 0404 3B020000 		.4byte	.LASF22
+ 820 0408 3B020000 		.4byte	.LASF22
+ 821 040c 05       		.byte	0x5
+ 822 040d 9F       		.byte	0x9f
+ 823 040e 0C       		.uleb128 0xc
+ 824 040f BA020000 		.4byte	.LASF23
+ 825 0413 BA020000 		.4byte	.LASF23
+ 826 0417 06       		.byte	0x6
+ 827 0418 EC       		.byte	0xec
+ 828 0419 0C       		.uleb128 0xc
+ 829 041a 3B000000 		.4byte	.LASF24
+ 830 041e 3B000000 		.4byte	.LASF24
+ 831 0422 07       		.byte	0x7
+ 832 0423 32       		.byte	0x32
+ 833 0424 0C       		.uleb128 0xc
+ 834 0425 00000000 		.4byte	.LASF25
+ 835 0429 00000000 		.4byte	.LASF25
+ 836 042d 08       		.byte	0x8
+ 837 042e 33       		.byte	0x33
+ 838 042f 0C       		.uleb128 0xc
+ 839 0430 EB000000 		.4byte	.LASF26
+ 840 0434 EB000000 		.4byte	.LASF26
+ 841 0438 09       		.byte	0x9
+ 842 0439 33       		.byte	0x33
+ 843 043a 0C       		.uleb128 0xc
+ 844 043b 41010000 		.4byte	.LASF27
+ 845 043f 41010000 		.4byte	.LASF27
+ 846 0443 0A       		.byte	0xa
+ 847 0444 33       		.byte	0x33
+ 848 0445 0C       		.uleb128 0xc
+ 849 0446 2E000000 		.4byte	.LASF28
+ 850 044a 2E000000 		.4byte	.LASF28
+ 851 044e 0B       		.byte	0xb
+ 852 044f 33       		.byte	0x33
+ 853 0450 0C       		.uleb128 0xc
+ 854 0451 4D010000 		.4byte	.LASF29
+ 855 0455 4D010000 		.4byte	.LASF29
+ 856 0459 0C       		.byte	0xc
+ 857 045a 33       		.byte	0x33
+ 858 045b 0C       		.uleb128 0xc
+ 859 045c 6F000000 		.4byte	.LASF30
+ 860 0460 6F000000 		.4byte	.LASF30
+ 861 0464 0D       		.byte	0xd
+ 862 0465 33       		.byte	0x33
+ 863 0466 0C       		.uleb128 0xc
+ 864 0467 0E000000 		.4byte	.LASF31
+ 865 046b 0E000000 		.4byte	.LASF31
+ 866 046f 0E       		.byte	0xe
+ 867 0470 33       		.byte	0x33
+ 868 0471 0C       		.uleb128 0xc
+ 869 0472 48000000 		.4byte	.LASF32
+ 870 0476 48000000 		.4byte	.LASF32
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 18
+
+
+ 871 047a 03       		.byte	0x3
+ 872 047b C3       		.byte	0xc3
+ 873 047c 0C       		.uleb128 0xc
+ 874 047d FB010000 		.4byte	.LASF33
+ 875 0481 FB010000 		.4byte	.LASF33
+ 876 0485 02       		.byte	0x2
+ 877 0486 C3       		.byte	0xc3
+ 878 0487 0C       		.uleb128 0xc
+ 879 0488 9B020000 		.4byte	.LASF34
+ 880 048c 9B020000 		.4byte	.LASF34
+ 881 0490 04       		.byte	0x4
+ 882 0491 C3       		.byte	0xc3
+ 883 0492 00       		.byte	0
+ 884              		.section	.debug_abbrev,"",%progbits
+ 885              	.Ldebug_abbrev0:
+ 886 0000 01       		.uleb128 0x1
+ 887 0001 11       		.uleb128 0x11
+ 888 0002 01       		.byte	0x1
+ 889 0003 25       		.uleb128 0x25
+ 890 0004 0E       		.uleb128 0xe
+ 891 0005 13       		.uleb128 0x13
+ 892 0006 0B       		.uleb128 0xb
+ 893 0007 03       		.uleb128 0x3
+ 894 0008 0E       		.uleb128 0xe
+ 895 0009 1B       		.uleb128 0x1b
+ 896 000a 0E       		.uleb128 0xe
+ 897 000b 55       		.uleb128 0x55
+ 898 000c 17       		.uleb128 0x17
+ 899 000d 11       		.uleb128 0x11
+ 900 000e 01       		.uleb128 0x1
+ 901 000f 10       		.uleb128 0x10
+ 902 0010 17       		.uleb128 0x17
+ 903 0011 00       		.byte	0
+ 904 0012 00       		.byte	0
+ 905 0013 02       		.uleb128 0x2
+ 906 0014 24       		.uleb128 0x24
+ 907 0015 00       		.byte	0
+ 908 0016 0B       		.uleb128 0xb
+ 909 0017 0B       		.uleb128 0xb
+ 910 0018 3E       		.uleb128 0x3e
+ 911 0019 0B       		.uleb128 0xb
+ 912 001a 03       		.uleb128 0x3
+ 913 001b 0E       		.uleb128 0xe
+ 914 001c 00       		.byte	0
+ 915 001d 00       		.byte	0
+ 916 001e 03       		.uleb128 0x3
+ 917 001f 24       		.uleb128 0x24
+ 918 0020 00       		.byte	0
+ 919 0021 0B       		.uleb128 0xb
+ 920 0022 0B       		.uleb128 0xb
+ 921 0023 3E       		.uleb128 0x3e
+ 922 0024 0B       		.uleb128 0xb
+ 923 0025 03       		.uleb128 0x3
+ 924 0026 08       		.uleb128 0x8
+ 925 0027 00       		.byte	0
+ 926 0028 00       		.byte	0
+ 927 0029 04       		.uleb128 0x4
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 19
+
+
+ 928 002a 16       		.uleb128 0x16
+ 929 002b 00       		.byte	0
+ 930 002c 03       		.uleb128 0x3
+ 931 002d 0E       		.uleb128 0xe
+ 932 002e 3A       		.uleb128 0x3a
+ 933 002f 0B       		.uleb128 0xb
+ 934 0030 3B       		.uleb128 0x3b
+ 935 0031 05       		.uleb128 0x5
+ 936 0032 49       		.uleb128 0x49
+ 937 0033 13       		.uleb128 0x13
+ 938 0034 00       		.byte	0
+ 939 0035 00       		.byte	0
+ 940 0036 05       		.uleb128 0x5
+ 941 0037 2E       		.uleb128 0x2e
+ 942 0038 01       		.byte	0x1
+ 943 0039 3F       		.uleb128 0x3f
+ 944 003a 19       		.uleb128 0x19
+ 945 003b 03       		.uleb128 0x3
+ 946 003c 0E       		.uleb128 0xe
+ 947 003d 3A       		.uleb128 0x3a
+ 948 003e 0B       		.uleb128 0xb
+ 949 003f 3B       		.uleb128 0x3b
+ 950 0040 0B       		.uleb128 0xb
+ 951 0041 27       		.uleb128 0x27
+ 952 0042 19       		.uleb128 0x19
+ 953 0043 49       		.uleb128 0x49
+ 954 0044 13       		.uleb128 0x13
+ 955 0045 8701     		.uleb128 0x87
+ 956 0047 19       		.uleb128 0x19
+ 957 0048 11       		.uleb128 0x11
+ 958 0049 01       		.uleb128 0x1
+ 959 004a 12       		.uleb128 0x12
+ 960 004b 06       		.uleb128 0x6
+ 961 004c 40       		.uleb128 0x40
+ 962 004d 18       		.uleb128 0x18
+ 963 004e 9742     		.uleb128 0x2117
+ 964 0050 19       		.uleb128 0x19
+ 965 0051 01       		.uleb128 0x1
+ 966 0052 13       		.uleb128 0x13
+ 967 0053 00       		.byte	0
+ 968 0054 00       		.byte	0
+ 969 0055 06       		.uleb128 0x6
+ 970 0056 34       		.uleb128 0x34
+ 971 0057 00       		.byte	0
+ 972 0058 03       		.uleb128 0x3
+ 973 0059 08       		.uleb128 0x8
+ 974 005a 3A       		.uleb128 0x3a
+ 975 005b 0B       		.uleb128 0xb
+ 976 005c 3B       		.uleb128 0x3b
+ 977 005d 0B       		.uleb128 0xb
+ 978 005e 49       		.uleb128 0x49
+ 979 005f 13       		.uleb128 0x13
+ 980 0060 02       		.uleb128 0x2
+ 981 0061 17       		.uleb128 0x17
+ 982 0062 00       		.byte	0
+ 983 0063 00       		.byte	0
+ 984 0064 07       		.uleb128 0x7
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 20
+
+
+ 985 0065 34       		.uleb128 0x34
+ 986 0066 00       		.byte	0
+ 987 0067 03       		.uleb128 0x3
+ 988 0068 0E       		.uleb128 0xe
+ 989 0069 3A       		.uleb128 0x3a
+ 990 006a 0B       		.uleb128 0xb
+ 991 006b 3B       		.uleb128 0x3b
+ 992 006c 0B       		.uleb128 0xb
+ 993 006d 49       		.uleb128 0x49
+ 994 006e 13       		.uleb128 0x13
+ 995 006f 02       		.uleb128 0x2
+ 996 0070 18       		.uleb128 0x18
+ 997 0071 00       		.byte	0
+ 998 0072 00       		.byte	0
+ 999 0073 08       		.uleb128 0x8
+ 1000 0074 898201   		.uleb128 0x4109
+ 1001 0077 00       		.byte	0
+ 1002 0078 11       		.uleb128 0x11
+ 1003 0079 01       		.uleb128 0x1
+ 1004 007a 31       		.uleb128 0x31
+ 1005 007b 13       		.uleb128 0x13
+ 1006 007c 00       		.byte	0
+ 1007 007d 00       		.byte	0
+ 1008 007e 09       		.uleb128 0x9
+ 1009 007f 898201   		.uleb128 0x4109
+ 1010 0082 01       		.byte	0x1
+ 1011 0083 11       		.uleb128 0x11
+ 1012 0084 01       		.uleb128 0x1
+ 1013 0085 31       		.uleb128 0x31
+ 1014 0086 13       		.uleb128 0x13
+ 1015 0087 01       		.uleb128 0x1
+ 1016 0088 13       		.uleb128 0x13
+ 1017 0089 00       		.byte	0
+ 1018 008a 00       		.byte	0
+ 1019 008b 0A       		.uleb128 0xa
+ 1020 008c 8A8201   		.uleb128 0x410a
+ 1021 008f 00       		.byte	0
+ 1022 0090 02       		.uleb128 0x2
+ 1023 0091 18       		.uleb128 0x18
+ 1024 0092 9142     		.uleb128 0x2111
+ 1025 0094 18       		.uleb128 0x18
+ 1026 0095 00       		.byte	0
+ 1027 0096 00       		.byte	0
+ 1028 0097 0B       		.uleb128 0xb
+ 1029 0098 898201   		.uleb128 0x4109
+ 1030 009b 01       		.byte	0x1
+ 1031 009c 11       		.uleb128 0x11
+ 1032 009d 01       		.uleb128 0x1
+ 1033 009e 31       		.uleb128 0x31
+ 1034 009f 13       		.uleb128 0x13
+ 1035 00a0 00       		.byte	0
+ 1036 00a1 00       		.byte	0
+ 1037 00a2 0C       		.uleb128 0xc
+ 1038 00a3 2E       		.uleb128 0x2e
+ 1039 00a4 00       		.byte	0
+ 1040 00a5 3F       		.uleb128 0x3f
+ 1041 00a6 19       		.uleb128 0x19
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 21
+
+
+ 1042 00a7 3C       		.uleb128 0x3c
+ 1043 00a8 19       		.uleb128 0x19
+ 1044 00a9 6E       		.uleb128 0x6e
+ 1045 00aa 0E       		.uleb128 0xe
+ 1046 00ab 03       		.uleb128 0x3
+ 1047 00ac 0E       		.uleb128 0xe
+ 1048 00ad 3A       		.uleb128 0x3a
+ 1049 00ae 0B       		.uleb128 0xb
+ 1050 00af 3B       		.uleb128 0x3b
+ 1051 00b0 0B       		.uleb128 0xb
+ 1052 00b1 00       		.byte	0
+ 1053 00b2 00       		.byte	0
+ 1054 00b3 00       		.byte	0
+ 1055              		.section	.debug_loc,"",%progbits
+ 1056              	.Ldebug_loc0:
+ 1057              	.LLST0:
+ 1058 0000 10000000 		.4byte	.LVL2
+ 1059 0004 2A000000 		.4byte	.LVL8
+ 1060 0008 0200     		.2byte	0x2
+ 1061 000a 30       		.byte	0x30
+ 1062 000b 9F       		.byte	0x9f
+ 1063 000c C4000000 		.4byte	.LVL32
+ 1064 0010 E0000000 		.4byte	.LVL37
+ 1065 0014 0100     		.2byte	0x1
+ 1066 0016 54       		.byte	0x54
+ 1067 0017 E2000000 		.4byte	.LVL38
+ 1068 001b FE000000 		.4byte	.LVL43
+ 1069 001f 0100     		.2byte	0x1
+ 1070 0021 54       		.byte	0x54
+ 1071 0022 00010000 		.4byte	.LVL44
+ 1072 0026 1C010000 		.4byte	.LVL49
+ 1073 002a 0100     		.2byte	0x1
+ 1074 002c 54       		.byte	0x54
+ 1075 002d 1E010000 		.4byte	.LVL50
+ 1076 0031 40010000 		.4byte	.LFE36
+ 1077 0035 0100     		.2byte	0x1
+ 1078 0037 54       		.byte	0x54
+ 1079 0038 00000000 		.4byte	0
+ 1080 003c 00000000 		.4byte	0
+ 1081              		.section	.debug_aranges,"",%progbits
+ 1082 0000 1C000000 		.4byte	0x1c
+ 1083 0004 0200     		.2byte	0x2
+ 1084 0006 00000000 		.4byte	.Ldebug_info0
+ 1085 000a 04       		.byte	0x4
+ 1086 000b 00       		.byte	0
+ 1087 000c 0000     		.2byte	0
+ 1088 000e 0000     		.2byte	0
+ 1089 0010 00000000 		.4byte	.LFB36
+ 1090 0014 40010000 		.4byte	.LFE36-.LFB36
+ 1091 0018 00000000 		.4byte	0
+ 1092 001c 00000000 		.4byte	0
+ 1093              		.section	.debug_ranges,"",%progbits
+ 1094              	.Ldebug_ranges0:
+ 1095 0000 00000000 		.4byte	.LFB36
+ 1096 0004 40010000 		.4byte	.LFE36
+ 1097 0008 00000000 		.4byte	0
+ 1098 000c 00000000 		.4byte	0
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 22
+
+
+ 1099              		.section	.debug_line,"",%progbits
+ 1100              	.Ldebug_line0:
+ 1101 0000 91010000 		.section	.debug_str,"MS",%progbits,1
+ 1101      0200DC00 
+ 1101      00000201 
+ 1101      FB0E0D00 
+ 1101      01010101 
+ 1102              	.LASF25:
+ 1103 0000 53706561 		.ascii	"Speaker_Write\000"
+ 1103      6B65725F 
+ 1103      57726974 
+ 1103      6500
+ 1104              	.LASF31:
+ 1105 000e 47726565 		.ascii	"Green2_Write\000"
+ 1105      6E325F57 
+ 1105      72697465 
+ 1105      00
+ 1106              	.LASF3:
+ 1107 001b 73686F72 		.ascii	"short unsigned int\000"
+ 1107      7420756E 
+ 1107      7369676E 
+ 1107      65642069 
+ 1107      6E7400
+ 1108              	.LASF28:
+ 1109 002e 47726565 		.ascii	"Green1_Write\000"
+ 1109      6E315F57 
+ 1109      72697465 
+ 1109      00
+ 1110              	.LASF24:
+ 1111 003b 53776974 		.ascii	"Switch1_Read\000"
+ 1111      6368315F 
+ 1111      52656164 
+ 1111      00
+ 1112              	.LASF32:
+ 1113 0048 50574D5F 		.ascii	"PWM_2_WriteCompare\000"
+ 1113      325F5772 
+ 1113      69746543 
+ 1113      6F6D7061 
+ 1113      726500
+ 1114              	.LASF9:
+ 1115 005b 666C6F61 		.ascii	"float\000"
+ 1115      7400
+ 1116              	.LASF1:
+ 1117 0061 756E7369 		.ascii	"unsigned char\000"
+ 1117      676E6564 
+ 1117      20636861 
+ 1117      7200
+ 1118              	.LASF30:
+ 1119 006f 426C7565 		.ascii	"Blue2_Write\000"
+ 1119      325F5772 
+ 1119      69746500 
+ 1120              	.LASF5:
+ 1121 007b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1121      20756E73 
+ 1121      69676E65 
+ 1121      6420696E 
+ 1121      7400
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 23
+
+
+ 1122              	.LASF15:
+ 1123 008d 50574D5F 		.ascii	"PWM_1_Start\000"
+ 1123      315F5374 
+ 1123      61727400 
+ 1124              	.LASF19:
+ 1125 0099 4144435F 		.ascii	"ADC_SAR_Seq_1_Enable\000"
+ 1125      5341525F 
+ 1125      5365715F 
+ 1125      315F456E 
+ 1125      61626C65 
+ 1126              	.LASF20:
+ 1127 00ae 4144435F 		.ascii	"ADC_SAR_Seq_1_Start\000"
+ 1127      5341525F 
+ 1127      5365715F 
+ 1127      315F5374 
+ 1127      61727400 
+ 1128              	.LASF10:
+ 1129 00c2 646F7562 		.ascii	"double\000"
+ 1129      6C6500
+ 1130              	.LASF16:
+ 1131 00c9 50574D5F 		.ascii	"PWM_2_Start\000"
+ 1131      325F5374 
+ 1131      61727400 
+ 1132              	.LASF14:
+ 1133 00d5 41444352 		.ascii	"ADCResult\000"
+ 1133      6573756C 
+ 1133      7400
+ 1134              	.LASF39:
+ 1135 00df 6D61696E 		.ascii	"main\000"
+ 1135      00
+ 1136              	.LASF38:
+ 1137 00e4 75696E74 		.ascii	"uint16\000"
+ 1137      313600
+ 1138              	.LASF26:
+ 1139 00eb 52656431 		.ascii	"Red1_Write\000"
+ 1139      5F577269 
+ 1139      746500
+ 1140              	.LASF17:
+ 1141 00f6 50574D5F 		.ascii	"PWM_3_Start\000"
+ 1141      335F5374 
+ 1141      61727400 
+ 1142              	.LASF8:
+ 1143 0102 756E7369 		.ascii	"unsigned int\000"
+ 1143      676E6564 
+ 1143      20696E74 
+ 1143      00
+ 1144              	.LASF21:
+ 1145 010f 4144435F 		.ascii	"ADC_SAR_Seq_1_StartConvert\000"
+ 1145      5341525F 
+ 1145      5365715F 
+ 1145      315F5374 
+ 1145      61727443 
+ 1146              	.LASF7:
+ 1147 012a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1147      206C6F6E 
+ 1147      6720756E 
+ 1147      7369676E 
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 24
+
+
+ 1147      65642069 
+ 1148              	.LASF27:
+ 1149 0141 426C7565 		.ascii	"Blue1_Write\000"
+ 1149      315F5772 
+ 1149      69746500 
+ 1150              	.LASF29:
+ 1151 014d 52656432 		.ascii	"Red2_Write\000"
+ 1151      5F577269 
+ 1151      746500
+ 1152              	.LASF35:
+ 1153 0158 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1153      43313120 
+ 1153      352E342E 
+ 1153      31203230 
+ 1153      31363036 
+ 1154 018b 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 1154      20726576 
+ 1154      6973696F 
+ 1154      6E203233 
+ 1154      37373135 
+ 1155 01be 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1155      66756E63 
+ 1155      74696F6E 
+ 1155      2D736563 
+ 1155      74696F6E 
+ 1156              	.LASF12:
+ 1157 01e6 6C6F6E67 		.ascii	"long double\000"
+ 1157      20646F75 
+ 1157      626C6500 
+ 1158              	.LASF13:
+ 1159 01f2 73697A65 		.ascii	"sizetype\000"
+ 1159      74797065 
+ 1159      00
+ 1160              	.LASF33:
+ 1161 01fb 50574D5F 		.ascii	"PWM_1_WriteCompare\000"
+ 1161      315F5772 
+ 1161      69746543 
+ 1161      6F6D7061 
+ 1161      726500
+ 1162              	.LASF6:
+ 1163 020e 6C6F6E67 		.ascii	"long long int\000"
+ 1163      206C6F6E 
+ 1163      6720696E 
+ 1163      7400
+ 1164              	.LASF36:
+ 1165 021c 6D61696E 		.ascii	"main.c\000"
+ 1165      2E6300
+ 1166              	.LASF11:
+ 1167 0223 63686172 		.ascii	"char\000"
+ 1167      00
+ 1168              	.LASF2:
+ 1169 0228 73686F72 		.ascii	"short int\000"
+ 1169      7420696E 
+ 1169      7400
+ 1170              	.LASF4:
+ 1171 0232 6C6F6E67 		.ascii	"long int\000"
+ 1171      20696E74 
+ARM GAS  C:\Users\harri\AppData\Local\Temp\ccTV1tqz.s 			page 25
+
+
+ 1171      00
+ 1172              	.LASF22:
+ 1173 023b 4144435F 		.ascii	"ADC_SAR_Seq_1_IsEndConversion\000"
+ 1173      5341525F 
+ 1173      5365715F 
+ 1173      315F4973 
+ 1173      456E6443 
+ 1174              	.LASF37:
+ 1175 0259 433A5C55 		.ascii	"C:\\Users\\harri\\Desktop\\Code1\\Final (2)\\Final\\"
+ 1175      73657273 
+ 1175      5C686172 
+ 1175      72695C44 
+ 1175      65736B74 
+ 1176 0286 46696E61 		.ascii	"Final\\Design01.cydsn\000"
+ 1176      6C5C4465 
+ 1176      7369676E 
+ 1176      30312E63 
+ 1176      7964736E 
+ 1177              	.LASF34:
+ 1178 029b 50574D5F 		.ascii	"PWM_3_WriteCompare\000"
+ 1178      335F5772 
+ 1178      69746543 
+ 1178      6F6D7061 
+ 1178      726500
+ 1179              	.LASF0:
+ 1180 02ae 7369676E 		.ascii	"signed char\000"
+ 1180      65642063 
+ 1180      68617200 
+ 1181              	.LASF23:
+ 1182 02ba 43794465 		.ascii	"CyDelay\000"
+ 1182      6C617900 
+ 1183              	.LASF18:
+ 1184 02c2 4144435F 		.ascii	"ADC_SAR_Seq_1_GetResult16\000"
+ 1184      5341525F 
+ 1184      5365715F 
+ 1184      315F4765 
+ 1184      74526573 
+ 1185              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
